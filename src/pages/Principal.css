@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-color: #cb8686;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 200px;
+}
+
+.overlay {
+  text-align: center;
+  width: 320px;
+}
+
+.title {
+  font-family: sans-serif;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Logo “doit” + subtítulo */
+.logo {
+  font-family: "Helvetica", sans-serif;
+  margin-bottom: 2rem;
+}
+
+.logo-main {
+  display: block;
+  font-size: 6rem;
+  font-weight: bold;
+  color: #e63946; /* rojo */
+  line-height: 1;
+}
+
+.logo-sub {
+  display: block;
+  font-size: 1.25rem;
+  margin-top: -0.5rem;
+  color: white;
+}
+
+.container-button {
+  display: flex;
+  gap: 15px;
+  justify-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}

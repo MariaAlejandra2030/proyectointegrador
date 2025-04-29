@@ -1,0 +1,22 @@
+
+.btn {
+    padding: 10px 35px;
+    cursor: pointer;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    transition: 0.35s;
+    width: 325px;
+    background-color: #E01919;
+  }
+  
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 6px 6px 10px rgb(184, 19, 19),
+      1px 1px 10px rgba(255, 255, 255, 0.6),
+      inset 2px 2px 10px rgb(215, 197, 197),
+      inset -1px -1px 5px rgba(255, 255, 255, 0.6);
+  }
+
+  
