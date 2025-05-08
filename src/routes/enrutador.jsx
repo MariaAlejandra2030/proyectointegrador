@@ -6,6 +6,7 @@ import ContenidoPrincipal from '../pages/ContenidoPrincipal'
 import Cuadros from '../components/Cuadros'
 import Footer from '../components/Footer'
 import NuevaClase from '../components/NuevaClase'
+import ContenidoPrincipalEstudiante from '../pages/ContenidoPrincipalEstudiante'
 
 export let enrutador = [
     {
@@ -43,7 +44,12 @@ export let enrutador = [
     {
         path: '/NuevaClase',
         element: <NuevaClase />
+    },
+    {
+        path: '/ContenidoPrincipalEstudiante',
+        element: <ContenidoPrincipalEstudiante />
     }
+
 
 
 ]

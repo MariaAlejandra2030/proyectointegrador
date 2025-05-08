@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import { generaToken } from '../helpers/funciones';
 import "./Principal.css";
+import ContenidoPrincipal from "./ContenidoPrincipal";
+
+
+
 
 function Principal() {
   let redireccion = useNavigate(); // Usamos useNavigate para redirigir
@@ -25,7 +29,7 @@ function Principal() {
 
   return (
     <div className="hero">
-      <div className="overlay">
+      <div className="overlay-principal">
         <div className="logo">
           <img
             className="LogoInicio"

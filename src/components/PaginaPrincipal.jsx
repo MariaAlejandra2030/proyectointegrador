@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import NuevaClase from "../components/NuevaClase";
 import "../components/NuevaClase.css";
 
 function PaginaPrincipal() {
   const [mostrarModal, setMostrarModal] = useState(false);
+  const navigate = useNavigate(); // CREA EL NAVEGADOR
+
 
   const [clases, setClases] = useState([]);
   const eliminarTodasLasClases = () => {
@@ -40,9 +43,17 @@ function PaginaPrincipal() {
           <div className="perfil">
             <span className="nombre">Andrés Tobón</span>
             <div className="avatar"></div>
-            <a href="#" className="cerrar">
-              Cerrar sesión
-            </a>
+            <a
+  href="#"
+  className="cerrar"
+  onClick={(e) => {
+    e.preventDefault();
+    navigate("/"); // Redirige a la página principal (login)
+  }}
+>
+  Cerrar sesión
+</a>
+
           </div>
         </div>
       </header>
