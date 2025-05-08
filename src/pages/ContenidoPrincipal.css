@@ -4,10 +4,8 @@
     padding: 0;
     box-sizing: border-box;
   }
-  .container-principal{
-    height: 500px;
-
-  }
+ 
+  
   .header {
     display: flex;
     justify-content: space-between;

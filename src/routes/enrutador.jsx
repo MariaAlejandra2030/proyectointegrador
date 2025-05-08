@@ -3,6 +3,9 @@ import Login from '../pages/Login'
 import Principal from '../pages/Principal'
 import Registrate from '../pages/Registrate'
 import ContenidoPrincipal from '../pages/ContenidoPrincipal'
+import Cuadros from '../components/Cuadros'
+import Footer from '../components/Footer'
+import NuevaClase from '../components/NuevaClase'
 
 export let enrutador = [
     {
@@ -26,7 +29,22 @@ export let enrutador = [
     {
         path: '/ContenidoPrincipal',
         element: <ContenidoPrincipal />
+    },
+
+    {
+        path: '/Cuadros',
+        element: <Cuadros />
+    },
+
+    {
+        path: '/Footer',
+        element: <Footer />
+    },
+    {
+        path: '/NuevaClase',
+        element: <NuevaClase />
     }
+
 
 ]
 

@@ -10,6 +10,8 @@ import "./Login.css";
 function Login() {
   const [getUsuario, setUsuario] = useState("");
   const [getPassword, setPassword] = useState("");
+  const [getName, setName] = useState("")
+  const [getEmail, setEmail] = useState("")
   let redireccion = useNavigate();
 
   function iniciarSesion() {

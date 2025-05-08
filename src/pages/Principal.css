@@ -8,11 +8,14 @@
   width: 100vw;
   height: 100vh;
   position: relative;
-  background-color: #cb8686;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   padding-right: 200px;
+  background-image: url('public/backgrount-DOIT.png');
+  background-size: cover;        
+  background-position: center; 
+  background-repeat: no-repeat;
 }
 
 .overlay {

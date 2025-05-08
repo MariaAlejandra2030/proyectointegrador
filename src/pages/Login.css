@@ -103,6 +103,9 @@
 
 .LogoInicio { 
   width: 550px;
+}
 
-
+label.signup_tog {
+  text-decoration: underline;
+  cursor:pointer;
 }
