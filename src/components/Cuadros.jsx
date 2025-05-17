@@ -1,74 +1,32 @@
-function Cuadros(){
-    return(
-        <div class="grid">
-          <div class="card">
-            <div class="card-header rojo">Aula 01</div>
-            <div class="card-sub">Nivel B1 &nbsp; Grupo 02</div>
-            <div class="card-hora">7:30 a.m a 9:30 a.m</div>
-            <div class="card-contenido">
-              Clase 1: Pasado continuo y comparación con el pasado simple
-            </div>
-            <div class="card-acciones">
-              <a href="#">Modificar</a> <a href="#">Eliminar</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header rojo">Aula 01</div>
-            <div class="card-sub">Nivel B1 &nbsp; Grupo 02</div>
-            <div class="card-hora">7:30 a.m a 9:30 a.m</div>
-            <div class="card-contenido">
-              Clase 1: Pasado continuo y comparación con el pasado simple
-            </div>
-            <div class="card-acciones">
-              <a href="#">Modificar</a> <a href="#">Eliminar</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header rojo">Aula 01</div>
-            <div class="card-sub">Nivel B1 &nbsp; Grupo 02</div>
-            <div class="card-hora">7:30 a.m a 9:30 a.m</div>
-            <div class="card-contenido">
-              Clase 1: Pasado continuo y comparación con el pasado simple
-            </div>
-            <div class="card-acciones">
-              <a href="#">Modificar</a> <a href="#">Eliminar</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header rojo">Aula 01</div>
-            <div class="card-sub">Nivel B1 &nbsp; Grupo 02</div>
-            <div class="card-hora">7:30 a.m a 9:30 a.m</div>
-            <div class="card-contenido">
-              Clase 1: Pasado continuo y comparación con el pasado simple
-            </div>
-            <div class="card-acciones">
-              <a href="#">Modificar</a> <a href="#">Eliminar</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header rojo">Aula 01</div>
-            <div class="card-sub">Nivel B1 &nbsp; Grupo 02</div>
-            <div class="card-hora">7:30 a.m a 9:30 a.m</div>
-            <div class="card-contenido">
-              Clase 1: Pasado continuo y comparación con el pasado simple
-            </div>
-            <div class="card-acciones">
-              <a href="#">Modificar</a> <a href="#">Eliminar</a>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header rojo">Aula 01</div>
-            <div class="card-sub">Nivel B1 &nbsp; Grupo 02</div>
-            <div class="card-hora">7:30 a.m a 9:30 a.m</div>
-            <div class="card-contenido">
-              Clase 1: Pasado continuo y comparación con el pasado simple
-            </div>
-            <div class="card-acciones">
-              <a href="#">Modificar</a> <a href="#">Eliminar</a>
-            </div>
+import NuevaClase from "../components/NuevaClase";
+import "../components/NuevaClase.css";
+function Cuadros({ aula, nivel, hora, descripcion, setmostrarmodaleliminar  }) {
+  // ESTADO PARA CONTROLAR EL MODAL
+
+  return (
+    <>
+      <div>
+        <div class="card">
+          <div class="card-header rojo">{aula}</div>
+          <div class="card-sub">{nivel}</div>
+          <div class="card-hora">{hora}</div>
+          <div class="card-contenido">{descripcion}</div>
+          <div class="card-acciones">
+            <a href="#">Modificar</a>{" "}
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault(); // evita que la página se recargue
+                setmostrarmodaleliminar(true);
+              }}
+            >
+              Eliminar
+            </a>
           </div>
         </div>
-    )
+      </div>
+    </>
+  );
 }
 
-export default Cuadros
+export default Cuadros;

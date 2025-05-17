@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import NuevaClase from "../components/NuevaClase";
 import "../components/NuevaClase.css";
 
-function PaginaPrincipal() {
-  const [mostrarModal, setMostrarModal] = useState(false);
+function PaginaPrincipal({setmostrarmodal}) {
+  
   const navigate = useNavigate(); // CREA EL NAVEGADOR
 
 
@@ -26,7 +26,8 @@ function PaginaPrincipal() {
         </div>
 
         <div className="acciones">
-          <a href="#" onClick={() => setMostrarModal(true)} className="link">
+          <a href="#" onClick={(e) => { e.preventDefault()
+            setmostrarmodal(true)}} className="link">
             Nueva clase
           </a>
           <a
@@ -41,7 +42,7 @@ function PaginaPrincipal() {
           </a>
 
           <div className="perfil">
-            <span className="nombre">Andrés Tobón</span>
+        
             <div className="avatar"></div>
             <a
   href="#"
@@ -71,11 +72,7 @@ function PaginaPrincipal() {
         </div>
       </main>
 
-      {mostrarModal && (
-        <div className="overlay">
-          <NuevaClase cerrar={setMostrarModal} />
-        </div>
-      )}
+      
     </div>
   );
 }

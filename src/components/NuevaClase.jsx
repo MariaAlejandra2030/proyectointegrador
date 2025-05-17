@@ -42,7 +42,9 @@ function NuevaClase({cerrar}){
     </select>
 
     <button>Agregar</button>
-    <a href="#" onClick={(e) => { e.preventDefault(); cerrar(); }}>
+    <a href="#" onClick={(e) => { e.preventDefault(); cerrar(false); 
+      console.log("cerrar nueva clase")
+    }}>
         Cancelar
       </a>
   </div>
