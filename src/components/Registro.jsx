@@ -1,6 +1,6 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-import { useEffect, useState } from "react";
 import { alertaError } from "../helpers/funciones";
 
 const apiUsuarios = "https://back-json-server-sabado.onrender.com/usuarios/";
@@ -37,6 +37,7 @@ function Registro() {
     const usuarioExistente = usuarios.find(
       (item) =>
         item.usuario === getUsuario || item.correo === getEmail
+      
     );
 
     if (usuarioExistente) {

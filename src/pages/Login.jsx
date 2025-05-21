@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import {
@@ -7,31 +7,44 @@ import {
   generaToken,
 } from "../helpers/funciones";
 import "./Login.css";
+
+const apiUsuarios = "https://back-json-server-sabado.onrender.com/usuarios/";
+
 function Login() {
   const [getUsuario, setUsuario] = useState("");
   const [getPassword, setPassword] = useState("");
-  const [getName, setName] = useState("")
-  const [getEmail, setEmail] = useState("")
-  let redireccion = useNavigate();
+  const [usuarios, setUsuarios] = useState([]);
+
+  const redireccion = useNavigate();
+
+  useEffect(() => {
+    fetch(apiUsuarios)
+      .then((res) => res.json())
+      .then((data) => setUsuarios(data))
+      .catch((error) => console.error("Error al obtener usuarios:", error));
+  }, []);
 
   function iniciarSesion() {
-    if (getUsuario === "admin" && getPassword === "admin") {
-      let token = generaToken();
+    const usuarioEncontrado = usuarios.find(
+      (u) => u.usuario === getUsuario && u.password === getPassword
+    );
+
+    if (usuarioEncontrado) {
+      const token = generaToken();
       localStorage.setItem("token", token);
-      localStorage.setItem("usuario", getUsuario);
-      alertaRedireccion("Bienvenido " + getUsuario, "/home", redireccion);
+      localStorage.setItem("usuario", usuarioEncontrado.usuario);
+      localStorage.setItem("nombre", usuarioEncontrado.nombre); // opcional
+      redireccion("/ContenidoPrincipal");
+      alertaRedireccion("Bienvenido!, " + usuarioEncontrado.nombre,
+      );
     } else {
-      alertaError("error", "usuario y/o contraseña incorrecta", "error");
+      alertaError("Error", "Usuario y/o contraseña incorrecta", "error");
     }
   }
 
-
   function PaginaRegistrate() {
- 
-     // Redirigimos a la página de Login
-     redireccion("/Registrate");  // Aquí solo usamos redireccion directamente
-   }
-
+    redireccion("/Registrate");
+  }
 
   return (
     <div className="container">
@@ -45,7 +58,7 @@ function Login() {
           />
           <div className="form_details">Login</div>
           <span className="switch">
-            ¿Aún no te has regístrado?
+            ¿Aún no te has registrado?
             <label onClick={PaginaRegistrate} className="signup_tog">
               Regístrate
             </label>
@@ -54,11 +67,11 @@ function Login() {
             onChange={(e) => setUsuario(e.target.value)}
             type="text"
             className="input"
-            placeholder="Email"
+            placeholder="Usuario"
           />
           <input
             onChange={(e) => setPassword(e.target.value)}
-            type="text"
+            type="password"
             className="input"
             placeholder="Password"
           />

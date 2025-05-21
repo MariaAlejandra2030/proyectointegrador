@@ -4,8 +4,8 @@ export function alertaRedireccion(mensaje, url, redireccion) {
     let timerInterval;
     Swal.fire({
         title: mensaje,
-        html: "Será redireccionado en <b></b> milliseconds.",
-        timer: 1500,
+        html: "Será redireccionado en unos minutos.",
+        timer: 5000,
         icon: "success",
         timerProgressBar: true,
         didOpen: () => {
@@ -17,7 +17,7 @@ export function alertaRedireccion(mensaje, url, redireccion) {
         },
         willClose: () => {
             clearInterval(timerInterval);
-            redireccion(url)
+        
         }
     }).then((result) => {
         /* Read more about handling dismissals below */
