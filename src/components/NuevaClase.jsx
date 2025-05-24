@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-function NuevaClase({ cerrar, onAgregarClase }) {
+function NuevaClase(props) {
+  // Extrae las funciones desde props
+  const { cerrar, setListaClases } = props;
+
   const [dia, setDia] = useState("Lunes");
   const [aula, setAula] = useState("");
   const [horaInicio, setHoraInicio] = useState("");
@@ -20,10 +23,8 @@ function NuevaClase({ cerrar, onAgregarClase }) {
       clase,
     };
 
-    // Puedes enviar los datos al padre o manejarlos aquí
-    console.log("Clase agregada:", nuevaClase);
-    onAgregarClase(nuevaClase); // si se define en el componente padre
-
+    // Agrega la nueva clase a la lista
+    setListaClases(prev => [nuevaClase, ...prev]);
     cerrar(false); // cierra el modal
   };
 
@@ -74,7 +75,6 @@ function NuevaClase({ cerrar, onAgregarClase }) {
           onClick={(e) => {
             e.preventDefault();
             cerrar(false);
-            console.log("cerrar nueva clase");
           }}
         >
           Cancelar

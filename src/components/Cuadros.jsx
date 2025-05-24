@@ -1,22 +1,33 @@
-import NuevaClase from "../components/NuevaClase";
 import "../components/NuevaClase.css";
-function Cuadros({ aula, nivel, hora, descripcion, setmostrarmodaleliminar  }) {
+
+function Cuadros({
+  dia,
+  aula,
+  horaInicio,
+  horaFinal,
+  nivel,
+  grupo,
+  clase,
+  setmostrarmodaleliminar,
+}) {
   // ESTADO PARA CONTROLAR EL MODAL
 
   return (
     <>
       <div>
-        <div class="card">
-          <div class="card-header rojo">{aula}</div>
-          <div class="card-sub">{nivel}</div>
-          <div class="card-hora">{hora}</div>
-          <div class="card-contenido">{descripcion}</div>
-          <div class="card-acciones">
+        <div className="card">
+          <div className="card-header rojo">{aula}</div>
+          <div className="card-sub">{nivel} - {grupo}</div>
+          <div className="card-hora">
+            {dia} | {horaInicio} - {horaFinal}
+          </div>
+          <div className="card-contenido">{clase}</div>
+          <div className="card-acciones">
             <a href="#">Modificar</a>{" "}
             <a
               href="#"
               onClick={(e) => {
-                e.preventDefault(); // evita que la página se recargue
+                e.preventDefault();
                 setmostrarmodaleliminar(true);
               }}
             >

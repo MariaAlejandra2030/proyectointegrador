@@ -10,7 +10,6 @@ function Eliminar({ cerrar }) {
           onClick={(e) => {
             e.preventDefault();
             cerrar(false);
-      console.log("cerrar eliminar")
           }}
         >
           Cancelar
