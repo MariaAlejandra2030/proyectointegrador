@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import {
@@ -24,7 +24,8 @@ function Login() {
       .catch((error) => console.error("Error al obtener usuarios:", error));
   }, []);
 
-  function iniciarSesion() {
+  function iniciarSesion(e) {
+    e.preventDefault();
     const usuarioEncontrado = usuarios.find(
       (u) => u.usuario === getUsuario && u.password === getPassword
     );
@@ -34,8 +35,11 @@ function Login() {
       localStorage.setItem("token", token);
       localStorage.setItem("usuario", usuarioEncontrado.usuario);
       localStorage.setItem("nombre", usuarioEncontrado.nombre); // opcional
-      redireccion("/ContenidoPrincipal");
-      alertaRedireccion("Bienvenido!, " + usuarioEncontrado.nombre,
+      alertaRedireccion(
+        "Bienvenido!, " + usuarioEncontrado.nombre,
+        "/ContenidoPrincipal",
+        true,
+        1000
       );
     } else {
       alertaError("Error", "Usuario y/o contraseña incorrecta", "error");

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
-import { alertaError } from "../helpers/funciones";
+import { alertaError, alertaRedireccion } from "../helpers/funciones";
 
 const apiUsuarios = "https://back-json-server-sabado.onrender.com/usuarios/";
 
@@ -56,8 +56,8 @@ function Registro() {
         }),
       })
         .then(() => {
-          console.log("Registro Exitoso");
-          obtenerUsuarios();
+          alertaRedireccion("Registro Exitoso", "/Login", true, 3000) 
+          
         })
         .catch((error) => {
           console.error("Error al registrar usuario:", error);

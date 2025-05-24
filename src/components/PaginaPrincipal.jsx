@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import NuevaClase from "../components/NuevaClase";
 import "../components/NuevaClase.css";
 
-function PaginaPrincipal({ setmostrarmodal }) {
+function PaginaPrincipal() {
   const navigate = useNavigate();
   const [clases, setClases] = useState([]);
   const [nombreUsuario, setNombreUsuario] = useState("");
+  const [mostrarModal, setMostrarModal] = useState(false);
 
-  // Traae nombre del usuario cargar la página
   useEffect(() => {
     const nombreGuardado = localStorage.getItem("nombre");
     if (nombreGuardado) {
@@ -26,6 +26,11 @@ function PaginaPrincipal({ setmostrarmodal }) {
     localStorage.removeItem("usuario");
     localStorage.removeItem("token");
     navigate("/");
+  };
+
+  const agregarClase = (nuevaClase) => {
+    setClases([...clases, nuevaClase]);
+    setMostrarModal(false); // Cierra el modal después de agregar
   };
 
   return (
@@ -46,7 +51,7 @@ function PaginaPrincipal({ setmostrarmodal }) {
             className="link"
             onClick={(e) => {
               e.preventDefault();
-              setmostrarmodal(true);
+              setMostrarModal(true);
             }}
           >
             Nueva clase
@@ -77,15 +82,34 @@ function PaginaPrincipal({ setmostrarmodal }) {
 
       <main className="horarios">
         <div className="dias">
-          <div className="dia">Lunes</div>
-          <div className="dia">Martes</div>
-          <div className="dia">Miércoles</div>
-          <div className="dia">Jueves</div>
-          <div className="dia">Viernes</div>
-          <div className="dia">Sábado</div>
+          {["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"].map((dia) => (
+            <div className="dia" key={dia}>
+              <h4>{dia}</h4>
+              {clases
+                .filter((clase) => clase.dia === dia)
+                .map((clase, index) => (
+                  <div key={index} className="clase-card">
+                    <strong>{clase.aula}</strong><br />
+                    {clase.nivel} - {clase.grupo}<br />
+                    {clase.horaInicio} a {clase.horaFinal}<br />
+                    {clase.clase}
+                  </div>
+                ))}
+            </div>
+          ))}
         </div>
       </main>
+
+      {mostrarModal && (
+        <NuevaClase
+          cerrar={setMostrarModal}
+          onAgregarClase={agregarClase}
+        />
+      )}
+
     </div>
+
+    
   );
 }
 
