@@ -1,6 +1,7 @@
+import Eliminar from "./Eliminar";
 import "../components/NuevaClase.css";
-
 function Cuadros({
+  id,
   dia,
   aula,
   horaInicio,
@@ -8,35 +9,41 @@ function Cuadros({
   nivel,
   grupo,
   clase,
-  setmostrarmodaleliminar,
+  setMostrarModalEliminar,
+  setId,
 }) {
-  // ESTADO PARA CONTROLAR EL MODAL
-
+  
   return (
-    <>
-      <div>
-        <div className="card">
-          <div className="card-header rojo">{aula}</div>
-          <div className="card-sub">{nivel} - {grupo}</div>
-          <div className="card-hora">
-            {dia} | {horaInicio} - {horaFinal}
-          </div>
-          <div className="card-contenido">{clase}</div>
-          <div className="card-acciones">
-            <a href="#">Modificar</a>{" "}
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                setmostrarmodaleliminar(true);
-              }}
-            >
-              Eliminar
-            </a>
-          </div>
-        </div>
+    <div className="card">
+      <div className="card-header rojo">{aula}</div>
+      <div className="card-sub">
+        {nivel} - {grupo}
       </div>
-    </>
+      <div className="card-hora">
+        {dia} | {horaInicio} - {horaFinal}
+      </div>
+      <div className="card-contenido">{clase}</div>
+      <div className="card-acciones">
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+          }}
+        >
+          Modificar
+        </a>
+
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            setMostrarModalEliminar(true);
+            setId(id); // Establece el ID de la clase a eliminar
+          }}
+        >
+          Eliminar
+        </button>
+      </div>
+    </div>
   );
 }
 

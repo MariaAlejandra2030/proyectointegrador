@@ -25,7 +25,25 @@ function Login() {
   }, []);
 
   function iniciarSesion(e) {
+
     e.preventDefault();
+
+    if (!getUsuario || !getPassword) {
+    alertaError("Campos obligatorios", "Por favor, ingresa usuario y contraseña.", "Error");
+    return;
+  }
+    // Validación de formato de usuario (sin espacios)
+    const usuarioRegex = /^[^\s]+$/;
+    if (!usuarioRegex.test(getUsuario)) {
+      alertaError("Usuario inválido", "El usuario no debe contener espacios.", "Error");
+      return;
+    }
+    // Validación de longitud de contraseña
+    if (getPassword.length < 6) {
+      alertaError("Contraseña débil", "La contraseña debe tener al menos 6 caracteres.", "Error");
+      return;
+    }
+    
     const usuarioEncontrado = usuarios.find(
       (u) => u.usuario === getUsuario && u.password === getPassword
     );

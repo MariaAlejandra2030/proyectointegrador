@@ -1,5 +1,6 @@
 const info = [
   {
+    id: 1,
     dia: "Lunes",
     aula: "Aula 01",
     horaInicio: "7:30 a.m",
@@ -9,6 +10,7 @@ const info = [
     clase: "Pasado continuo y comparación con el pasado simple"
   },
   {
+    id: 2,
     dia: "Miércoles",
     aula: "Aula 02",
     horaInicio: "7:30 a.m",
@@ -18,6 +20,7 @@ const info = [
     clase: "Pasado continuo y comparación con el pasado simple"
   },
   {
+    id: 3,
     dia: "Jueves",
     aula: "Aula 03",
     horaInicio: "7:30 a.m",
@@ -26,7 +29,7 @@ const info = [
     grupo: "03",
     clase: "Pasado continuo y comparación con el pasado simple"
   },
-  {
+  {id: 4,
     dia: "Viernes",
     aula: "Aula 01",
     horaInicio: "7:30 a.m",
@@ -35,7 +38,7 @@ const info = [
     grupo: "02",
     clase: "Pasado continuo y comparación con el pasado simple"
   },
-  {
+  {id: 5,
     dia: "Sábado",
     aula: "Aula 02",
     horaInicio: "7:30 a.m",
@@ -44,7 +47,7 @@ const info = [
     grupo: "01",
     clase: "Pasado continuo y comparación con el pasado simple"
   },
-  {
+  {id: 6,
     dia: "Martes",
     aula: "Aula 03",
     horaInicio: "7:30 a.m",
@@ -53,7 +56,7 @@ const info = [
     grupo: "03",
     clase: "Pasado continuo y comparación con el pasado simple"
   },
-  {
+  {id: 7,
     dia: "Lunes",
     aula: "Aula 01",
     horaInicio: "9:30 a.m",
@@ -62,7 +65,7 @@ const info = [
     grupo: "02",
     clase: "Pasado continuo y comparación con el pasado simple"
   },
-  {
+  {id: 8,
     dia: "Miércoles",
     aula: "Aula 02",
     horaInicio: "9:30 a.m",
@@ -71,7 +74,7 @@ const info = [
     grupo: "01",
     clase: "Pasado continuo y comparación con el pasado simple"
   },
-  {
+  {id: 9,
     dia: "Jueves",
     aula: "Aula 03",
     horaInicio: "9:30 a.m",
@@ -80,7 +83,7 @@ const info = [
     grupo: "03",
     clase: "Pasado continuo y comparación con el pasado simple"
   },
-  {
+  {id: 10,
     dia: "Viernes",
     aula: "Aula 01",
     horaInicio: "9:30 a.m",
@@ -89,7 +92,7 @@ const info = [
     grupo: "02",
     clase: "Pasado continuo y comparación con el pasado simple"
   },
-  {
+  {id: 11,
     dia: "Sábado",
     aula: "Aula 02",
     horaInicio: "9:30 a.m",
@@ -98,7 +101,7 @@ const info = [
     grupo: "01",
     clase: "Pasado continuo y comparación con el pasado simple"
   },
-  {
+  {id: 12,
     dia: "Martes",
     aula: "Aula 03",
     horaInicio: "9:30 a.m",

@@ -3,10 +3,17 @@ import { useNavigate } from "react-router-dom";
 import "../components/NuevaClase.css";
 import Cuadros from "../components/Cuadros";
 
-function PaginaPrincipal({ setmostrarmodal, setListaClases, listaclases, setMostrarModalEliminar }) {
+function PaginaPrincipal({
+  setmostrarmodal,
+  setListaClases,
+  listaclases,
+  setMostrarModalEliminar,
+  setId
+}) {
   const navigate = useNavigate();
 
   const [nombreUsuario, setNombreUsuario] = useState("");
+
 
   useEffect(() => {
     const nombreGuardado = localStorage.getItem("nombre");
@@ -18,6 +25,8 @@ function PaginaPrincipal({ setmostrarmodal, setListaClases, listaclases, setMost
   const eliminarTodasLasClases = () => {
     setListaClases([]);
   };
+
+
 
   const cerrarSesion = (e) => {
     e.preventDefault();
@@ -75,30 +84,35 @@ function PaginaPrincipal({ setmostrarmodal, setListaClases, listaclases, setMost
       <h3 className="subtitulo">Gestión de horarios maestros</h3>
 
       <main className="horarios">
+
+
         <div className="dias">
-      {["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"].map(
-        (dia) => (
-          <div className="dia" key={dia}>
-            <div className="estilo-dia">{dia}</div>
-            {/* Mostrar clases filtradas por día */}
-            {listaclases
-              .filter((clase) => clase.dia === dia)
-              .map((item, index) => (
-                <Cuadros
-                  key={index}
-                  dia={item.dia}
-                  aula={item.aula}
-                  horaInicio={item.horaInicio}
-                  horaFinal={item.horaFinal}
-                  nivel={item.nivel}
-                  grupo={item.grupo}
-                  clase={item.clase}
-                  setmostrarmodaleliminar={setMostrarModalEliminar}
-                />
-              ))}
-          </div>
-        )
-      )}
+          {["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"].map(
+            (dia) => (
+              <div className="dia" key={dia}>
+                <div className="estilo-dia">{dia}</div>
+                {/* Mostrar clases filtradas por día */}
+                {listaclases
+                  .filter((clase) => clase.dia === dia)
+                  .map((item, ) => (
+                    <Cuadros
+                      key={item.id}
+                      id={item.id}
+                      dia={item.dia}
+                      aula={item.aula}
+                      horaInicio={item.horaInicio}
+                      horaFinal={item.horaFinal}
+                      nivel={item.nivel}
+                      grupo={item.grupo}
+                      clase={item.clase}
+                      setMostrarModalEliminar={setMostrarModalEliminar} // opcional si usas para cerrar modal
+                     setListaClases={setListaClases} // opcional si usas para eliminar clase
+                     setId={setId} // pasa la función para establecer el ID a eliminar
+                    />
+                  ))}
+              </div>
+            )
+          )}
         </div>
       </main>
     </div>

@@ -12,6 +12,7 @@ function ContenidoPrincipal() {
   const [mostrarModal, setMostrarModal] = useState(false); // ESTADO PARA CONTROLAR EL MODAL de nueva clase
   const [mostrarModalEliminar, setMostrarModalEliminar] = useState(false); // ESTADO PARA CONTROLAR EL MODAL de eliminaar
   const [listaclases, setListaClases] = useState(info); // ESTADO PARA ALMACENAR LAS CLASES
+  const [id, setId] = useState(null); // ESTADO PARA ALMACENAR EL ID DE LA CLASE A ELIMINAR
   return (
     <>
       <PaginaPrincipal
@@ -19,7 +20,7 @@ function ContenidoPrincipal() {
         setListaClases={setListaClases}
         listaclases={listaclases}
         setMostrarModalEliminar={setMostrarModalEliminar}
-        
+        setId={setId} // PASA LA FUNCIÓN PARA ESTABLECER EL ID A ELIMINAR
       />
       {mostrarModal && (
         <div className="overlay">
@@ -32,7 +33,11 @@ function ContenidoPrincipal() {
 
       {mostrarModalEliminar && (
         <div className="overlay">
-          <Eliminar cerrar={setMostrarModalEliminar} />
+          <Eliminar 
+            cerrar={setMostrarModalEliminar}
+            setListaClases={setListaClases}
+            id={id} // PASA EL ID DE LA CLASE A ELIMINAR
+          />
         </div>
       )}
 

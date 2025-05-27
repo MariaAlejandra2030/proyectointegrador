@@ -34,6 +34,28 @@ function Registro() {
   }
 
   function RegistrarUsuario() {
+
+     if (!getUsuario || !getPassword || !getName || !getEmail) {
+    alertaError("Campos obligatorios", "Por favor, completa todos los campos.", "Error");
+    return;
+  }
+    // Validación de formato de correo electrónico
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(getEmail)) {
+      alertaError("Correo inválido", "Por favor, ingresa un correo electrónico válido.", "Error");
+      return;
+    }
+    // Validación de longitud de contraseña
+    if (getPassword.length < 6) {
+      alertaError("Contraseña débil", "La contraseña debe tener al menos 6 caracteres.", "Error");
+      return;
+    }
+    // Validación de formato de usuario (sin espacios)
+    const usuarioRegex = /^[^\s]+$/;
+    if (!usuarioRegex.test(getUsuario)) {
+      alertaError("Usuario inválido", "El usuario no debe contener espacios.", "Error");
+      return;
+    }
     const usuarioExistente = usuarios.find(
       (item) =>
         item.usuario === getUsuario || item.correo === getEmail
