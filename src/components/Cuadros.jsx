@@ -11,6 +11,7 @@ function Cuadros({
   clase,
   setMostrarModalEliminar,
   setId,
+  setModificarModal,
 }) {
   
   return (
@@ -28,6 +29,8 @@ function Cuadros({
           href="#"
           onClick={(e) => {
             e.preventDefault();
+            setId(id); // Establece el ID de la clase a modificar
+            setModificarModal(true);
           }}
         >
           Modificar

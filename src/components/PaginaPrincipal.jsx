@@ -8,12 +8,12 @@ function PaginaPrincipal({
   setListaClases,
   listaclases,
   setMostrarModalEliminar,
-  setId
+  setId,
+  setModificarModal,
 }) {
   const navigate = useNavigate();
 
   const [nombreUsuario, setNombreUsuario] = useState("");
-
 
   useEffect(() => {
     const nombreGuardado = localStorage.getItem("nombre");
@@ -25,8 +25,6 @@ function PaginaPrincipal({
   const eliminarTodasLasClases = () => {
     setListaClases([]);
   };
-
-
 
   const cerrarSesion = (e) => {
     e.preventDefault();
@@ -84,8 +82,6 @@ function PaginaPrincipal({
       <h3 className="subtitulo">Gestión de horarios maestros</h3>
 
       <main className="horarios">
-
-
         <div className="dias">
           {["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"].map(
             (dia) => (
@@ -94,7 +90,7 @@ function PaginaPrincipal({
                 {/* Mostrar clases filtradas por día */}
                 {listaclases
                   .filter((clase) => clase.dia === dia)
-                  .map((item, ) => (
+                  .map((item) => (
                     <Cuadros
                       key={item.id}
                       id={item.id}
@@ -106,8 +102,9 @@ function PaginaPrincipal({
                       grupo={item.grupo}
                       clase={item.clase}
                       setMostrarModalEliminar={setMostrarModalEliminar} // opcional si usas para cerrar modal
-                     setListaClases={setListaClases} // opcional si usas para eliminar clase
-                     setId={setId} // pasa la función para establecer el ID a eliminar
+                      setListaClases={setListaClases} // opcional si usas para eliminar clase
+                      setId={setId} // pasa la función para establecer el ID a eliminar
+                      setModificarModal={setModificarModal} // opcional si usas para modificar clase
                     />
                   ))}
               </div>
